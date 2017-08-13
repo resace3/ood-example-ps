@@ -5,6 +5,14 @@ Output generated: <%= Time.now %>
 <pre>
 $ <%= @command %>
 <%= @output %>
+
+$ quota
+Disk quotas for user efranz (uid 10851):
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+10.11.200.25:/PZS0530/
+                  33352  524288000 524288000               2  1000000 1000000
+10.11.200.23:/PZS0562/
+                101800800  524288000 524288000          916451  1000000 1000000
 </pre>
 
 
