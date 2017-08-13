@@ -15,4 +15,31 @@ Disk quotas for user efranz (uid 10851):
                 101800800  524288000 524288000          916451  1000000 1000000
 </pre>
 
+<div id="chart">
+  <svg></svg>
+</div>
 
+<script>
+nv.addGraph(function() {
+    var chart = nv.models.bulletChart();
+
+    d3.select('#chart svg')
+    .datum(exampleData())
+    .transition().duration(1000)
+    .call(chart);
+
+    return chart;
+});
+
+function exampleData() {
+  return {
+    "title":"/users/PZS0562",        //Label the bullet chart
+      "subtitle":"916417/1000000 files",        //sub-label for bullet chart
+      "ranges":[0,800000,1000000],     //Minimum, mean and maximum values.
+      "measures":[916417],         //Value representing current measurement (the thick blue line in the example)
+      "markers":[700000]             //Place a marker on the chart (the white triangle marker)
+      // marker could be added if quota were different from limit
+  };
+}
+
+</script>
