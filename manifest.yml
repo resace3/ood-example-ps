@@ -1,0 +1,3 @@
+name: Quota
+description: Display quota limits and current count on both files and blocks
+icon: fa://hdd-o
