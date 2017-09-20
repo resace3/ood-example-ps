@@ -1,2 +1,3 @@
-name: My Passenger App Processes
-description: Display your running Passenger app proceseses in a table
+name: Quota
+description: Display quotas
+icon: fa://hdd-o
