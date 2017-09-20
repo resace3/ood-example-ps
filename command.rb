@@ -2,17 +2,17 @@ require 'open3'
 
 class Command
   def to_s
-    "ps aux | grep '[A]pp'"
+    "quota -spw"
   end
 
-  AppProcess = Struct.new(:user, :pid, :pct_cpu, :pct_mem, :vsz, :rss, :tty, :stat, :start, :time, :command)
+  Quota = Struct.new(:filesystem, :blocks, :blocks_quota, :blocks_limit, :blocks_grace, :files, :files_quota, :files_limit, :files_grace)
 
   # Parse a string output from the `ps aux` command and return an array of
   # AppProcess objects, one per process
   def parse(output)
     lines = output.strip.split("\n")
-    lines.map do |line|
-      AppProcess.new(*(line.split(" ", 11)))
+    lines.drop(2).map do |line|
+      Quota.new(*(line.split))
     end
   end
 
