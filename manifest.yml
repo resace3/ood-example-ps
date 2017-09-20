@@ -1,3 +1,5 @@
 name: Quota
 description: Display quotas
 icon: fa://hdd-o
+category: Files
+subcategory: Utilities
