@@ -1,39 +1,46 @@
-<h1><%= title %></h1>
+<h1 class="display-4 py-3 mb-3 border-bottom">
+  <%= title %>
+</h1>
 
-Output generated: <%= Time.now %>
+<pre><code>$ <%= @command %></code></pre>
 
-<pre>
-$ <%= @command %>
-</pre>
+<table class="table">
+  <caption>
+    Last updated <%= DateTime.now.strftime("%Y-%m-%d %I:%M:%S%p %Z") %>
+  </caption>
 
-<table class="table table-bordered">
-  <tr>
-    <th>USER</th>
-    <th>PID</th>
-    <th>%CPU</th>
-    <th>%MEM</th>
-    <th>VSZ</th>
-    <th>RSS</th>
-    <th>TTY</th>
-    <th>STAT</th>
-    <th>START</th>
-    <th>TIME</th>
-    <th>COMMAND</th>
-  </tr>
-  <% @processes.each do |app| %>
-  <tr>
-    <td><%= app.user %></td>
-    <td><%= app.pid %></td>
-    <td><%= app.pct_cpu %></td>
-    <td><%= app.pct_mem %></td>
-    <td><%= app.vsz %></td>
-    <td><%= app.rss %></td>
-    <td><%= app.tty %></td>
-    <td><%= app.stat %></td>
-    <td><%= app.start %></td>
-    <td><%= app.time %></td>
-    <td><%= app.command %></td>
-  </tr>
-  <% end %>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">USER</th>
+      <th scope="col">PID</th>
+      <th scope="col">%CPU</th>
+      <th scope="col">%MEM</th>
+      <th scope="col">VSZ</th>
+      <th scope="col">RSS</th>
+      <th scope="col">TTY</th>
+      <th scope="col">STAT</th>
+      <th scope="col">START</th>
+      <th scope="col">TIME</th>
+      <th scope="col">COMMAND</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @processes.each do |app| %>
+      <tr>
+        <td scope="row"><%= app.user %></td>
+        <td scope="row"><%= app.pid %></td>
+        <td scope="row"><%= app.pct_cpu %></td>
+        <td scope="row"><%= app.pct_mem %></td>
+        <td scope="row"><%= app.vsz %></td>
+        <td scope="row"><%= app.rss %></td>
+        <td scope="row"><%= app.tty %></td>
+        <td scope="row"><%= app.stat %></td>
+        <td scope="row"><%= app.start %></td>
+        <td scope="row"><%= app.time %></td>
+        <td scope="row"><%= app.command %></td>
+      </tr>
+    <% end %>
+  </tbody>
 
 </table>

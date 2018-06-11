@@ -1,2 +1,4 @@
 name: Passenger App Processes
-description: Display your running Passenger app proceseses in a table
+icon: fa://gear
+description: |
+  Display your running Passenger app processes in a table.
