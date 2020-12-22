@@ -2,7 +2,7 @@ require 'open3'
 
 class Command
   def to_s
-    "ps aux | egrep '[A]pp|[r]uby|[n]ginx'"
+    "ps aux | egrep '[A]pp|[r]uby'"
   end
 
   AppProcess = Struct.new(:user, :pid, :pct_cpu, :pct_mem, :vsz, :rss, :tty, :stat, :start, :time, :command)
